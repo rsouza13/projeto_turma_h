@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de ALuno</title>
+</head>
+<body>
+    <h1>Cadastro de ALuno</h1>
+    <form action="cadatrarAluno.php" method="post">
+        <label for="nome">Nome:</label>
+        <input type="text" name="nome" id="nome">
+        <br><br>
+        <label for="altura">Altura:</label>
+        <input type="number" name="altura" id="altura">
+        <br><br>
+        <label for="sexo">Sexo:</label>
+        <select name="sexo" id="sexo">
+            <option value="F">Feminino</option>
+            <option value="M">Masculino</option>
+        </select>
+        <br><br>
+        <label for="dtNascimento">Data de Nascimento:</label>
+        <input type="date" name="dtNascimento" id="dtNascimeno">
+        <br><br>
+        <input type="submit" value="Cadastrar Aluno" />
+    </form>
+</body>
+</html>
