@@ -4,12 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro de ALuno</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.js"></script>
+    <script type="text/javascript" src="js/scriptViaCEP.js"></script>
 </head>
 <body>
     <h1>Cadastro de ALuno</h1>
-    <form action="cadatrarAluno.php" method="post">
+    <form action="cadatrarAluno.php" method="post" enctype="multipart/form-data">
+        <fieldset>
+            <legend>Dados do Pessoais</legend>
+        <label for="cpf">CPF:</label>
+        <input type="text" name="cpf" id="cpf">
+        <br><br>
         <label for="nome">Nome:</label>
         <input type="text" name="nome" id="nome">
+        <br><br>
+        <label for="telefone">Telefone:</label>
+        <input type="text" name="telefone" id="telefone" placeholder="(00) 0000-0000">
+        <br><br>
+        <label for="foto">Seleciona a Foto do Aluno:</label>
+        <input type="file" name="foto" id="foto">
         <br><br>
         <label for="altura">Altura:</label>
         <input type="number" name="altura" id="altura">
@@ -22,8 +36,31 @@
         <br><br>
         <label for="dtNascimento">Data de Nascimento:</label>
         <input type="date" name="dtNascimento" id="dtNascimeno">
-        <br><br>
+        </fieldset>
+        <br>
+        <fieldset>
+            <legend>Dados do Endereço</legend>
+            <label>Cep:
+            <input name="cep" type="text" id="cep" value="" size="10" maxlength="9"
+                   onblur="pesquisacep(this.value);" /></label><br />
+            <label>Rua:
+            <input name="rua" type="text" id="rua" size="60" /></label><br />
+            <label>Bairro:
+            <input name="bairro" type="text" id="bairro" size="40" /></label><br />
+            <label>Cidade:
+            <input name="cidade" type="text" id="cidade" size="40" /></label><br />
+            <label>Estado:
+            <input name="uf" type="text" id="uf" size="2" /></label><br />
+            <label>IBGE:
+            <input name="ibge" type="text" id="ibge" size="8" /></label><br />
+        </fieldset>
         <input type="submit" value="Cadastrar Aluno" />
     </form>
+    <script>
+        $(document).ready(function(){
+             $('#telefone').mask('(00) 0000-00009');
+             $('#celular').mask('00000-0000');
+        });
+      </script>
 </body>
 </html>

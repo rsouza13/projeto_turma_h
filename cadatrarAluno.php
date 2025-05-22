@@ -8,9 +8,12 @@ $nome           = $_POST['nome'];
 $altura         = $_POST['altura'];
 $sexo           = $_POST['sexo'];
 $dtNascimento   = $_POST['dtNascimento'];
+$foto           = $_FILES['foto']['name'];
 
-$sqlInserirAluno = "INSERT INTO aluno (nome, altura, sexo, data_nascimento) "
-    ."VALUE ('{$nome}', {$altura}, '{$sexo}', '{$dtNascimento}')";
+move_uploaded_file($_FILES['foto']['tmp_name'], 'fotosAlunos/'.$foto);
+
+$sqlInserirAluno = "INSERT INTO aluno (nome, altura, sexo, data_nascimento, foto) "
+    ."VALUE ('{$nome}', {$altura}, '{$sexo}', '{$dtNascimento}', '{$foto}')";
 
 if($conn->prepare($sqlInserirAluno)->execute()){
     echo 'Aluno cadastrado com sucesso!';
